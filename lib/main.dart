@@ -1,10 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:bases_web/router/router_generator.dart';
-import 'package:bases_web/ui/pages/counter_page.dart';
+import 'package:bases_web/router/route_generator.dart';
 import 'package:flutter/material.dart';
-
-import 'ui/pages/counter_provider_page_.dart';
 
 void main() => runApp(const MyApp());
 
@@ -16,7 +13,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       initialRoute: '/stateful',
-      onGenerateRoute: RouterGenerator.generateRoute,
+      onGenerateRoute: RouteGenerator.generateRoute,
     );
   }
 }
