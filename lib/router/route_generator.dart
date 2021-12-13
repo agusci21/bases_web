@@ -1,3 +1,5 @@
+//Forma de navegacion web flutter vanilla
+
 import 'package:flutter/cupertino.dart';
 
 import 'package:bases_web/ui/views/counter_provider_view.dart';
