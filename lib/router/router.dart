@@ -30,7 +30,11 @@ class Flurorouter {
     );
   });
   static final Handler _counterProviderHandler =
-      Handler(handlerFunc: (context, params) => const CounterProviderView());
+      Handler(handlerFunc: (context, params) {
+    return CounterProviderView(
+      base: params['q']?[0] ?? '10',
+    );
+  });
 
   //
   static final Handler _pageNotFound =
