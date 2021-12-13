@@ -1,50 +1,29 @@
-import 'package:bases_web/ui/views/counter_provider_view.dart';
-import 'package:bases_web/ui/views/counter_view.dart';
-import 'package:bases_web/ui/views/view_404.dart';
 import 'package:fluro/fluro.dart';
+import 'package:bases_web/router/route_handlers.dart';
+
+//Similar a Express.js => routes
 
 class Flurorouter {
   static final FluroRouter router = FluroRouter();
   static void configureRoute() {
+    //Stateful routes
     router.define('/',
-        handler: _counterHandler, transitionType: TransitionType.fadeIn);
+        handler: counterHandler, transitionType: TransitionType.fadeIn);
 
     router.define('/stateful',
-        handler: _counterHandler, transitionType: TransitionType.fadeIn);
+        handler: counterHandler, transitionType: TransitionType.fadeIn);
 
     router.define('/stateful/:base',
-        handler: _counterHandler, transitionType: TransitionType.fadeIn);
+        handler: counterHandler, transitionType: TransitionType.fadeIn);
 
+    //Provider Routes
     router.define('/provider',
-        handler: _counterProviderHandler,
-        transitionType: TransitionType.fadeIn);
+        handler: counterProviderHandler, transitionType: TransitionType.fadeIn);
 
     router.define('/dashboard/users/:userId/:roleId',
-        handler: _dashBoardUserHandler, transitionType: TransitionType.fadeIn);
+        handler: dashBoardUserHandler, transitionType: TransitionType.fadeIn);
 
-    router.notFoundHandler = _pageNotFound;
+    //404Page
+    router.notFoundHandler = pageNotFound;
   }
-
-  //Handlers - Manejadores
-  static final Handler _counterHandler =
-      Handler(handlerFunc: (context, params) {
-    return CounterView(
-      base: params['base']?[0] ?? '5',
-    );
-  });
-  static final Handler _counterProviderHandler =
-      Handler(handlerFunc: (context, params) {
-    return CounterProviderView(
-      base: params['q']?[0] ?? '10',
-    );
-  });
-
-  static final Handler _dashBoardUserHandler =
-      Handler(handlerFunc: (context, params) {
-    print(params);
-    return const View404();
-  });
-
-  static final Handler _pageNotFound =
-      Handler(handlerFunc: (context, params) => const View404());
 }
