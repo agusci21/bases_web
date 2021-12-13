@@ -25,7 +25,6 @@ class _TableDesktopMenu extends StatelessWidget {
         children: [
           CustomFlatButton(
             text: 'Contador Stateful',
-            // onPressed: () => Navigator.pushNamed(context, '/stateful'),
             onPressed: () =>
                 locator<NavigationService>().navigateTo('/stateful'),
             color: Colors.black,
@@ -41,6 +40,13 @@ class _TableDesktopMenu extends StatelessWidget {
           CustomFlatButton(
             text: 'Otra página',
             onPressed: () => locator<NavigationService>().navigateTo('/404'),
+            color: Colors.black,
+          ),
+          const SizedBox(width: 10),
+          CustomFlatButton(
+            text: 'Stateful 100',
+            onPressed: () =>
+                locator<NavigationService>().navigateTo('/stateful/100'),
             color: Colors.black,
           ),
         ],
@@ -59,7 +65,7 @@ class _MobileMenu extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           CustomFlatButton(
-            text: 'Contador Stateful',
+            text: 'Contador bugeado',
             // onPressed: () => Navigator.pushNamed(context, '/stateful'),
             onPressed: () =>
                 locator<NavigationService>().navigateTo('/stateful'),

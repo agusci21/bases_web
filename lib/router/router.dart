@@ -8,17 +8,26 @@ class Flurorouter {
   static void configureRoute() {
     router.define('/',
         handler: _counterHandler, transitionType: TransitionType.fadeIn);
+
     router.define('/stateful',
         handler: _counterHandler, transitionType: TransitionType.fadeIn);
+
+    router.define('/stateful/:base',
+        handler: _counterHandler, transitionType: TransitionType.fadeIn);
+
     router.define('/provider',
         handler: _counterProviderHandler,
         transitionType: TransitionType.fadeIn);
+
     router.notFoundHandler = _pageNotFound;
   }
 
   //Handlers - Manejadores
   static final Handler _counterHandler =
-      Handler(handlerFunc: (context, params) => const CounterView());
+      Handler(handlerFunc: (context, params) {
+    print(params['base']?[0]);
+    return const CounterView();
+  });
   static final Handler _counterProviderHandler =
       Handler(handlerFunc: (context, params) => const CounterProviderView());
 
