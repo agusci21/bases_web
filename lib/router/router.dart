@@ -25,8 +25,9 @@ class Flurorouter {
   //Handlers - Manejadores
   static final Handler _counterHandler =
       Handler(handlerFunc: (context, params) {
-    print(params['base']?[0]);
-    return const CounterView();
+    return CounterView(
+      base: params['base']?[0] ?? '5',
+    );
   });
   static final Handler _counterProviderHandler =
       Handler(handlerFunc: (context, params) => const CounterProviderView());
