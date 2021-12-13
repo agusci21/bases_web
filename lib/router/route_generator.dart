@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:bases_web/ui/pages/counter_page.dart';
-import 'package:bases_web/ui/pages/counter_provider_page_.dart';
+import 'package:bases_web/ui/pages/counter_provider_page.dart';
 import 'package:bases_web/ui/pages/page_404.dart';
 
 class RouteGenerator {
