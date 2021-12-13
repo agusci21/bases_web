@@ -19,6 +19,9 @@ class Flurorouter {
         handler: _counterProviderHandler,
         transitionType: TransitionType.fadeIn);
 
+    router.define('/dashboard/users/:userId/:roleId',
+        handler: _dashBoardUserHandler, transitionType: TransitionType.fadeIn);
+
     router.notFoundHandler = _pageNotFound;
   }
 
@@ -36,7 +39,12 @@ class Flurorouter {
     );
   });
 
-  //
+  static final Handler _dashBoardUserHandler =
+      Handler(handlerFunc: (context, params) {
+    print(params);
+    return const View404();
+  });
+
   static final Handler _pageNotFound =
       Handler(handlerFunc: (context, params) => const View404());
 }
